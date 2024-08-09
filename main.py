@@ -224,7 +224,7 @@ def main():
             or "bind_ticket_id" not in config
             or "schedule_id" not in config
         ):
-            url = f"https://hk4e-api.mihoyo.com/event/tickethub/get_acts?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&game_biz=hk4e_cn&page_index=1&page_size=20"
+            url = f'https://hk4e-api.mihoyo.com/event/tickethub/get_acts?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&game_biz=hk4e_cn&page_index=1&page_size=20'
             acts = session.get(url, headers=headers).json()
             if acts["data"]["is_login"] == False:
                 logger.error(i18n_format("login_failed"))
@@ -240,7 +240,7 @@ def main():
                 ],
             ).prompt()
             config["act_id"] = act.data["act_id"]
-            url = f"https://hk4e-api.mihoyo.com/event/tickethub/get_act_detail?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&lang=zh-cn&game_biz=hk4e_cn&act_id={config['act_id']}"
+            url = f'https://hk4e-api.mihoyo.com/event/tickethub/get_act_detail?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&lang=zh-cn&game_biz=hk4e_cn&act_id={config['act_id']}'
             act_detail = session.get(url, headers=headers).json()["data"]
             config["time"] = act_detail["book_start_timestamp"]
             schedules = act_detail["data_schedules"]

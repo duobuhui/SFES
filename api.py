@@ -108,7 +108,7 @@ class BilibiliHyg:
             return -1
 
     def create_order(self):
-        url = f"https://hk4e-api.mihoyo.com/event/tickethub/immediate_book?badge_uid={self.config['role']['game_uid']}&badge_region={self.config['role']['region']}&lang=zh-cn&game_biz=hk4e_cn"
+        url = f'https://hk4e-api.mihoyo.com/event/tickethub/immediate_book?badge_uid={self.config['role']['game_uid']}&badge_region={self.config['role']['region']}&lang=zh-cn&game_biz=hk4e_cn'
         data = {
             "act_id": self.config["act_id"],
             "schedule_id": self.config["schedule_id"],

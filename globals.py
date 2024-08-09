@@ -358,7 +358,7 @@ def load_config():
                     i18n_format("select_game_role"),
                     choices = [noneprompt.Choice("{} {} Level {} UID:{}".format(x["region_name"], x["nickname"], x["level"], x["game_uid"]),data = x) for x in user["data"]["list"]],
                 ).prompt().data
-            url = f"https://api-takumi.mihoyo.com/common/badge/v1/login/account"
+            url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account"
             login_info = session.post(
                 url, headers=headers,
                 json={
@@ -374,7 +374,7 @@ def load_config():
                     i18n_format("select_game_role"),
                     choices = [noneprompt.Choice("{} {} Level {} UID:{}".format(x["region_name"], x["nickname"], x["level"], x["game_uid"]),data = x) for x in user["data"]["list"]],
                 ).prompt().data
-                url = f"https://api-takumi.mihoyo.com/common/badge/v1/login/account"
+                url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account"
                 login_info = session.post(
                     url, headers=headers,
                     json={
