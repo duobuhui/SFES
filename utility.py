@@ -73,7 +73,7 @@ def utility(config):
             return add_buyer(config)
 
     def bind_ticket(config):
-        url = f"https://hk4e-api.mihoyo.com/event/tickethub/get_acts?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&game_biz=hk4e_cn&page_index=1&page_size=20"
+        url = f'https://hk4e-api.mihoyo.com/event/tickethub/get_acts?badge_uid={config["role"]["game_uid"]}&badge_region={config["role"]["region"]}&game_biz=hk4e_cn&page_index=1&page_size=20'
         response = session.get(url, headers=headers).json()
         #logger.debug(response)
         act = noneprompt.ListPrompt(
