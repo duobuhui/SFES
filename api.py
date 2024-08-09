@@ -59,7 +59,7 @@ class BilibiliHyg:
         return float(time.time() + self.config["time_offset"])
 
     def get_ticket_status(self):
-        url = f"https://hk4e-api.mihoyo.com/event/tickethub/get_act_schedule_remain?badge_uid={self.config["role"]["game_uid"]}&badge_region={self.config["role"]["region"]}&lang=zh-cn&game_biz=hk4e_cn&act_id={self.config["act_id"]}&schedule_ids[]={self.config["schedule_id"]}"
+        url = f'https://hk4e-api.mihoyo.com/event/tickethub/get_act_schedule_remain?badge_uid={self.config["role"]["game_uid"]}&badge_region={self.config["role"]["region"]}&lang=zh-cn&game_biz=hk4e_cn&act_id={self.config["act_id"]}&schedule_ids[]={self.config["schedule_id"]}'
         try:
             response = self.session.get(url, headers=self.headers, timeout=1)
         except (
