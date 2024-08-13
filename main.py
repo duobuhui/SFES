@@ -21,12 +21,6 @@ import noneprompt
 
 from i18n import *
 
-common_project_id = [
-    {"name": "上海·BilibiliWorld 2024", "id": 85939},
-    {"name": "上海·BILIBILI MACRO LINK 2024", "id": 85938},
-]
-
-
 def run(hyg):
     if hyg.config["mode"] == "direct" or hyg.config["mode"] == "time":
         while True:
@@ -266,9 +260,19 @@ def main():
                     )
                     for i in schedule["sub_acts"]
                 ],
-            ).prompt().data["scheduleInfos"][0]
+            ).prompt().data["scheduleInfos"]
+            sub_schedule = noneprompt.ListPrompt(
+                i18n_format("select_sub_schedule"),
+                choices=[
+                    noneprompt.Choice(
+                        f"{i['schedule_name']} {i['start_time_str']} - {i['end_time_str']}",
+                        data=i,
+                    )
+                    for i in sub_act
+                ],
+            ).prompt().data
             config["bind_ticket_id"] = schedule["bind_ticket_id"]
-            config["schedule_id"] = sub_act["schedule_id"]
+            config["schedule_id"] = sub_schedule["schedule_id"]
         save(config)
         sentry_sdk.set_context("config", config)
         sentry_sdk.capture_message("config complete")

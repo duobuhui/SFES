@@ -100,8 +100,8 @@
     "connect_link_error": "链接错误，请重新登录",
     "connect_no_account": "该平台未绑定B站账号",
     "bi_login_method": "请选择登录方法",
-    "bi_login_cookie": "cookie",
-    "bi_login_qrcode": "扫描二维码",
+    "bi_login_cookie": "cookie登录（仅调试）",
+    "login_qr": "扫描二维码",
     "bi_login_user_pass": "输入用户名和密码",
     "bi_login_web_sms": "网页版短信验证码",
     "bi_login_app_sms": "手机APP版短信验证码",
@@ -258,9 +258,8 @@
     "local_captcha_load_failed": "本地验证码模块加载失败，错误信息：{}，请使用其他验证方式",
     "tips": [
       "提示: ",
-      "1. 提前在实用工具预填账号绑定手机号，可以不用开票时手忙脚乱填写！",
-      "2. 抢一张票，多开是没有用的！",
-      "3. 提前测试GT模块是否可用，方式：验证码登录/用户名密码登录，GT模块不能用建议换台电脑/系统！"
+      "1. 提前在实用工具或平台绑定票号",
+      "2. 没了"
     ],
     "key_not_match": "密钥使用条件错误，请检查登录机器和UID",
     "key_expired": "密钥已过期，请重新获取",
@@ -287,6 +286,11 @@
     "super_mode_on_msg": "超级模式😎😎😎无所畏惧☝☝☝🤓🤓🤓👉👉👉",
     "super_mode_on": "超级模式已开启",
     "super_mode_off": "超级模式已关闭",
-    "super_delay": "请输入超级模式延迟时间（单位秒）"
+    "super_delay": "请输入超级模式延迟时间（单位秒）",
+    "select_act": "请选择活动",
+    "select_schedule": "请选择场次",
+    "select_sub_act": "请选择子活动",
+    "select_sub_schedule": "请选择子场次",
+    "no_ticket_binded": "未绑定门票，请前往绑定"
   }
 }

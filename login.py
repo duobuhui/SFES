@@ -71,7 +71,7 @@ def qr_login(session, headers):
 
 def _verify(gt, challenge, token):
     global sdk
-    from geetest import run
+    #from geetest import run
 
     time_start = time.time()
     data = run(gt, challenge, token, "local_gt")
@@ -101,8 +101,8 @@ def interactive_login(sentry_sdk=None):
                     choices=[
                         noneprompt.Choice(name=i18n_format(x), data=x)
                         for x in [
+                            "login_qr",
                             "bi_login_cookie",
-                            "bi_login_qr",
                         ]
                     ],
                     default_select=1,
