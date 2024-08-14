@@ -136,7 +136,7 @@ def interactive_login(sentry_sdk=None):
                 if "e_hk4e_token" not in cookie:
                     new_cookie.append(cookie)
             cookie_str = ";".join(new_cookie)
-        elif method == "bi_login_qr":
+        elif method == "login_qr":
             cookie_str = qr_login(session, headers)
         else:
             logger.error(i18n_format("login_not_supported"))
