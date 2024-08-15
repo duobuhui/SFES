@@ -51,7 +51,7 @@ class BilibiliHyg:
                         (self.config["time"] - self.get_time())
                     )
                 )
-            while self.get_time() < self.config["time"]:
+            while self.get_time() < self.config["time"]-5:
                 pass
         logger.info(i18n_format("will_pay_bill"))
 
