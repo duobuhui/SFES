@@ -53,19 +53,6 @@ class BilibiliHyg:
                 )
             while self.get_time() < self.config["time"]-10:
                 pass
-            url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account" 
-            login_info = self.session.post( 
-                 url, headers=self.headers, 
-                 json={ 
-                     "game_biz": "hk4e_cn", 
-                     "region": self.config["role"]["region"], 
-                     "lang": "zh-cn", 
-                     "uid": self.config["role"]["game_uid"], 
-                 } 
-                 ).json() 
-            logger.debug(login_info) 
-            if login_info["retcode"] != 0:
-                logger.error(i18n_format("login_failure"))
         logger.info(i18n_format("will_pay_bill"))
 
     def get_time(self):
@@ -167,6 +154,9 @@ class BilibiliHyg:
         time.sleep(self.config["co_delay"])
         result = self.create_order()
         logger.debug(result)
+        if result["retcode"] == -100:
+            url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account"
+            login_info = session.post(url, headers=self.headers,json={"game_biz": "hk4e_cn","region": self.config["role"]["region"],"lang": "zh-cn","uid": self.config["role"]["game_uid"]}).json()
         if result["retcode"] == -500004:
             logger.warning(i18n_format("bili_speed_limit"))
         elif result["retcode"] == -620003:
