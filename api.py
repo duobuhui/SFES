@@ -51,16 +51,16 @@ class BilibiliHyg:
                         (self.config["time"] - self.get_time())
                     )
                 )
-            while self.get_time() < self.config["time"]-5:
+            while self.get_time() < self.config["time"]-10:
                 pass
             url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account" 
-            login_info = session.post( 
-                 url, headers=headers, 
+            login_info = self.session.post( 
+                 url, headers=self.headers, 
                  json={ 
                      "game_biz": "hk4e_cn", 
-                     "region": config["role"]["region"], 
+                     "region": self.config["role"]["region"], 
                      "lang": "zh-cn", 
-                     "uid": config["role"]["game_uid"], 
+                     "uid": self.config["role"]["game_uid"], 
                  } 
                  ).json() 
             logger.debug(login_info) 
