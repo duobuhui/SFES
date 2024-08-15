@@ -53,6 +53,19 @@ class BilibiliHyg:
                 )
             while self.get_time() < self.config["time"]-5:
                 pass
+            url = "https://api-takumi.mihoyo.com/common/badge/v1/login/account" 
+            login_info = session.post( 
+                 url, headers=headers, 
+                 json={ 
+                     "game_biz": "hk4e_cn", 
+                     "region": config["role"]["region"], 
+                     "lang": "zh-cn", 
+                     "uid": config["role"]["game_uid"], 
+                 } 
+                 ).json() 
+            logger.debug(login_info) 
+            if login_info["retcode"] != 0:
+                logger.error(i18n_format("login_failure"))
         logger.info(i18n_format("will_pay_bill"))
 
     def get_time(self):
